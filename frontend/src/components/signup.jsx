@@ -56,6 +56,7 @@ const Signup = () => {
           contact: formData.contact,
           country: formData.country,
           zip: formData.zip,
+          balance: 0
         }),
       });
       const data = await response.json();
@@ -67,7 +68,7 @@ const Signup = () => {
       }
     }
     catch (error) {
-        alert("Signup failed " + error.message);
+      alert("Signup failed " + error.message);
     }
 
   };
@@ -78,7 +79,6 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <div className='header1'>
           <div className='text'>{action}</div>
-          <div className='underline'></div>
         </div>
 
         <div className="inputs">

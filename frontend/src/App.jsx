@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './components/login';
 import Signup from './components/signup';
+import Hero from './components/Hero';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       element: (
         <>
           <NavBar />
+          <Hero />
           <Footer />
         </>
       ),
