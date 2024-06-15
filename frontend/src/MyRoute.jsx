@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Login from './components/login'
 import Signup from './components/signup'
-import Donate from './components/Folder/Donate'
+import Donate from './components/Donate'
 import Campaign from './components/Campaign'
 import Camp from './components/camp/camp'
 const MyRoute = () => {
@@ -52,7 +52,7 @@ const MyRoute = () => {
             <Route path='/' element={<>
                 <Navbar />
                 <Card data={data} />
-                <Camp/>
+                <Camp />
                 <Footer />
             </>
             } />
@@ -61,7 +61,6 @@ const MyRoute = () => {
                     <>
                         <Navbar />
                         <Login />
-                        <Campaign/>
                         <Footer />
 
                     </>
@@ -73,20 +72,24 @@ const MyRoute = () => {
                     <Footer />
                 </>
             } />
-            <Route path='/signup' element={
+            <Route path='/createcampaign' element={
                 <>
                     <Navbar />
-                    <Signup />
+                    <Campaign />
                     <Footer />
                 </>
             } />
-            <Route path='/donate/:id' element={<>
-            <Navbar/>
-            <ProjectDetail /></>} />
-            <Route path='/now' element ={ <>
-            <Navbar/>
-            <Donate /></>} />
-            
+            <Route path='/donate/:id' element={
+                <>
+                    <Navbar />
+                    <ProjectDetail />
+                </>}
+            />
+            <Route path='/now' element={<>
+                <Navbar />
+                <Donate />
+            </>} />
+
         </Routes>
     )
 }

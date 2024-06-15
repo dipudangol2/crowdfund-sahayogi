@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Card.css';
 
 function Card({ data }) {
@@ -24,5 +25,15 @@ function Card({ data }) {
     </div>
   );
 }
+Card.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      imageurl: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      cause: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default Card;

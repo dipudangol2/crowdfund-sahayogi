@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import '../Folder/Donate.css';
+import  { useState } from 'react';
+import "./Donate.css";
 
 const Donate = () => {
-  
+
   const [payment, setPayment] = useState('');
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
@@ -31,7 +31,7 @@ const Donate = () => {
       console.log('Amount:', amount);
 
       // await fetch("apiname");
-      
+
     } else {
       alert("fill all fields")
     }
