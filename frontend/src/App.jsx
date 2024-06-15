@@ -35,6 +35,8 @@ function App() {
       imageurl: 'img4.jpg',
       name: 'Green Technology Training Program',
       cause: 'Create training programs for green technology skills, like solar panel installation, electric vehicle maintenance.',
+     
+
     },
     {
       id: 5,
