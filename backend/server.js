@@ -14,7 +14,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = 4000;
+const port = 5000;
 
 // Set up Multer storage configuration
 const storage = multer.diskStorage({
@@ -85,6 +85,8 @@ app.post("/signup", async (req, res) => {
 app.post("/api/campaigns/create", upload.single("image"), async (req, res) => {
   const { userName, campaignName, description, goal } = req.body;
   const imageUrl = req.file ? `/uploads/${req.file.filename}` : "";
+  const startDate = new Date();
+  const endDate = new Date(startDate.getTime() + 30 * 24 * 60 * 60 * 1000);
 
   if (!campaignName || !description || !goal || !imageUrl) {
     return res
@@ -99,6 +101,8 @@ app.post("/api/campaigns/create", upload.single("image"), async (req, res) => {
       description,
       goal,
       imageUrl,
+      createdAt: startDate,
+      endsAt: endDate,
     });
 
     await newCampaign.save();
@@ -119,6 +123,21 @@ app.get("/api/campaigns", async (req, res) => {
     console.log(campaigns);
   } catch (error) {
     console.error("Error fetching campaigns:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+app.get("/api/campaign/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    const campaign = await Campaign.findOne({ _id: id });
+    if (!campaign) {
+      return res.status(404).json({ message: "Campaign not found" });
+    }
+    res.json(campaign);
+    console.log(campaign);
+  } catch (error) {
+    console.error("Error fetching Campaign:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
