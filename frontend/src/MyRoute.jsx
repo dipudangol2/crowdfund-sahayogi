@@ -6,7 +6,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Login from './components/login'
 import Signup from './components/signup'
-
+import Donate from './components/Folder/Donate'
+import Campaign from './components/Campaign'
+import Camp from './components/camp/camp'
 const MyRoute = () => {
     const data = [
         {
@@ -51,6 +53,7 @@ const MyRoute = () => {
             <Route path='/' element={<>
                 <Navbar />
                 <Card data={data} />
+                <Camp/>
                 <Footer />
             </>
             } />
@@ -59,7 +62,7 @@ const MyRoute = () => {
                     <>
                         <Navbar />
                         <Login />
-
+                        <Campaign/>
                         <Footer />
 
                     </>
@@ -71,9 +74,20 @@ const MyRoute = () => {
                     <Footer />
                 </>
             } />
+            <Route path='/signup' element={
+                <>
+                    <Navbar />
+                    <Signup />
+                    <Footer />
+                </>
+            } />
             <Route path='/donate/:id' element={<>
             <Navbar/>
             <ProjectDetail /></>} />
+            <Route path='/now' element ={ <>
+            <Navbar/>
+            <Donate /></>} />
+            
         </Routes>
     )
 }
