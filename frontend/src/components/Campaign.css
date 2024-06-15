@@ -1,12 +1,5 @@
 
-  .container {
-    width:700px; /* increase the width of the container */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fffdfd;
-    border-radius: 5px;
-}
-h1{
+ .campaign-driver h1{
   color:black;
 }
 
@@ -18,11 +11,8 @@ h1{
     color:black;
     font-size: 18px;
     text-align: center;
-    width:700px;
-    
+    width:700px;  
 }
-
-
 .campaign-form >  p {
   display: block;
   margin-block-start: 0em;
