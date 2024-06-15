@@ -4,48 +4,63 @@ import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './components/login';
-import Signup from './components/signup';
-import Hero from './components/Hero';
-
+import Signup from './components/signup'
+import Card from "./components/Card";
+import { Route, Routes,BrowserRouter} from "react-router-dom";
+import ProjectDetail from './components/ProjectDetail';
+import MyRoute from './MyRoute';
 
 function App() {
-  const router = createBrowserRouter([
+  const data = [
     {
-      path: "/",
-      element: (
-        <>
-          <NavBar />
-          <Hero />
-          <Footer />
-        </>
-      ),
+      id: 1,
+      imageurl: 'rafah.jpg',
+      name: 'Fund For Gaza',
+      cause: 'To provide families with access to basic necessities like food, clean water, and medical care. Join us in making a difference. It is also associated with people supporting ceasefire.',
     },
     {
-      path: "/login",
-      element: (
-        <>
-          <NavBar />
-          <Login />
-          <Footer />
-        </>
-      ),
+      id: 2,
+      imageurl: 'img2.jpeg',
+      name: 'Plastic Waste Reduction Campaign',
+      cause: 'Fund campaigns that aim to reduce plastic waste through education, advocacy, and community clean-up events.',
     },
     {
-      path: "/signup",
-      element: (
-        <>
-          <NavBar />
-          <Signup />
-          <Footer />
-        </>
-      ),
+      id: 3,
+      imageurl: 'img3.jpg',
+      name: 'Sustainable Fashion Project',
+      cause: 'Launch initiatives that promote sustainable fashion, such as clothing recycling programs or eco-friendly fashion lines.',
     },
-  ]);
+    {
+      id: 4,
+      imageurl: 'img4.jpg',
+      name: 'Green Technology Training Program',
+      cause: 'Create training programs for green technology skills, like solar panel installation, electric vehicle maintenance.',
+     
+
+    },
+    {
+      id: 5,
+      imageurl: 'img5.jpg',
+      name: 'Waste-to-Energy Project',
+      cause: 'Provide a sustainable energy source and reduce landfill waste. Develop projects that convert waste materials into energy, such as biogas plants or waste incineration facilities.',
+    },
+    {
+      id: 6,
+      imageurl: 'img6.jpg',
+      name: 'Community Recycling Center',
+      cause: 'Reduce waste, create local jobs, and educate the community about recycling and waste management.',
+    },
+  ];
+
 
   return (
     <div className="App">
-      <RouterProvider
-        router={router} />
+      <BrowserRouter>
+      <MyRoute/>
+        {/* <Routes>
+        <Route path="/donate/:id" element={<ProjectDetail />} />
+        </Routes> */}
+        </BrowserRouter>
     </div>
   )
 }
