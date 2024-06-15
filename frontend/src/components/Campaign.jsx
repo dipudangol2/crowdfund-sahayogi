@@ -10,7 +10,7 @@ const CreateCampaignPage = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form fields
@@ -32,11 +32,34 @@ const CreateCampaignPage = () => {
 
     // If there are no validation errors, perform necessary actions with the form data
     if (Object.keys(validationErrors).length === 0) {
+      const formData = new FormData();
+      formData.append("userName", userName);
+      formData.append("campaignName", campaignName);
+      formData.append("description", description);
+      formData.append("goal", goal);
+      formData.append("image", image);
       // All fields are filled, proceed with form submission
       console.log('Campaign Name:', campaignName);
       console.log('Description:', description);
       console.log('Goal:', goal);
       console.log('Image:', image);
+      
+    try {
+      const response = await fetch('http://localhost:5000/api/campaigns/create', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        alert('Campaign created successfully');
+        setSubmitted(true);
+      } else {
+        alert('Campaign creation failed: ' + data.message);
+      }
+    } catch (error) {
+      console.error("Error creating campaign:", error);
+    }
       setSubmitted(true);
     }
   };
@@ -82,9 +105,9 @@ const CreateCampaignPage = () => {
         {errors.goal && <p>{errors.goal}</p>}
         
         <label className='campaign-driver'>
-          IMAGE OR VIDEO:<br />
+          IMAGE:<br />
           <input
-            type="file" className='choose'
+            type="file" accept='image/*' className='choose'
             onChange={(e) => setImage(e.target.files[0])}
             
           />
