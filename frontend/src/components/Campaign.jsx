@@ -118,7 +118,7 @@ const CreateCampaignPage = () => {
           Create Campaign
         </button>
       </form>
-      {submitted && <p1>Campaign created successfully!</p1>}
+      {submitted && <p>Campaign created successfully!</p>}
     </div>
   );
 };

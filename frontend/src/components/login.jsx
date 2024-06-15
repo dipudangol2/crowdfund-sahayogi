@@ -33,7 +33,7 @@ const Login = () => {
       const data = await response.json();
       if (data.success) {
         alert('Login successful');
-        navigate('/dashboard')
+        navigate('/')
 
       } else {
         alert('Login failed: ' + data.message);

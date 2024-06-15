@@ -29,7 +29,7 @@ function Card({ data }) {
 Card.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      _id: PropTypes.number.isRequired,
+      _id: PropTypes.string.isRequired,
       imageUrl: PropTypes.string.isRequired,
       campaignName: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
