@@ -55,13 +55,11 @@ app.post("/signup", async (req, res) => {
     res.json({ success: true, message: "User registered successfully" });
   } catch (err) {
     console.error("Error during signup: " + err);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Internal Server Error",
-        errcode: err.code,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      errcode: err.code,
+    });
   }
 });
 

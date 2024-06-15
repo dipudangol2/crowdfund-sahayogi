@@ -80,8 +80,6 @@ form {
   cursor: pointer;
 } */
 
-
-
 /* Updated second set of CSS styles */
 
 .form-container {
@@ -89,8 +87,8 @@ form {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  max-width: 60%;
-  margin: auto;
+  width: 60%;
+  margin-top: auto;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -139,12 +137,12 @@ form {
 }
 
 .submit {
-  width: 100%;
+  max-width: 60%;
   height: 40px;
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -164,6 +162,12 @@ form {
 }
 
 .forgot-password span {
-  color: #4CAF50;
+  color: #4caf50;
   cursor: pointer;
+}
+.signup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }

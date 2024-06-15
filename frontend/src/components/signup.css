@@ -1,7 +1,7 @@
 /* signin.css */
 
 .container1 {
-  max-width: 70%;
+  width: 70%;
   margin: 10%;
   padding: 20px;
   background-color: #f9f9f9;
@@ -16,7 +16,11 @@ form{
 }
 .header1 {
   display: flex;
+  width: 100%;
+  flex-direction: column;
   align-items: center;
+  align-content: center;
+
   justify-content: space-between;
   margin-bottom: 20px;
   text-align: center; /* Center align text within .header1 */
@@ -38,13 +42,15 @@ form{
 
 
 .inputs {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 0 5rem;
 }
 
 .input {
+  width: 60%;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -69,9 +75,9 @@ form{
 }
 
 .submit-container1 {
+  width: 60%;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .submit {

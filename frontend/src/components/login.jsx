@@ -13,20 +13,29 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
     // Basic email validation
     if (!email.includes('@')) {
       setError("Email must contain @ symbol");
     } else if (password === "") {
       setError("Please enter your password");
     } else {
-      // Clear any previous errors
       setError(null);
-
-      // Simulate login success
-      alert("Successfully logged in!");
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert('Login successful');
+      } else {
+        alert('Login failed: ' + data.message);
+      }
+      // Clear any previous errors
 
       // Redirect to dashboard (example path '/dashboard')
       // history.push("/dashboard");
@@ -74,8 +83,18 @@ const Login = () => {
 
         <button className="submit" type="submit">Submit</button>
       </form>
-      <div>Don't have an account?</div>
-      <Link to={"/signup"}> <button className="submit">Sign Up</button></Link>
+      <div className="signup">
+        <p>
+
+          Don't have an account?
+        </p>
+
+        <button className="submit">
+          <Link to={"/signup"}>
+            Sign Up
+          </Link>
+        </button>
+      </div>
     </div>
   );
 }
