@@ -11,7 +11,7 @@ const Camp = () => {
            <h1>Create Your Campaign</h1> 
            <p>When we donate We help Us....
            </p>
-           <Link to={'/createcampaign'}><button className='but'> Create Your Campaign </button></Link>
+           <Link to={'/createcampaign'}><button className='but'> Create</button></Link>
         </div>
     </div>
   )
