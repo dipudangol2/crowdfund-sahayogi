@@ -1,6 +1,7 @@
 
  .campaign-driver h1{
   color:black;
+  
 }
 
 .campaign-form {
@@ -75,6 +76,11 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.but{
+  background-color:transparent;
+  font-size: 30px;
+  border-radius: 5px;
 }
 
 button[type="submit"]:hover {
