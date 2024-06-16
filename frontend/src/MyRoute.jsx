@@ -10,50 +10,61 @@ import Campaign from './components/Campaign'
 import Camp from './components/camp/camp'
 import CampaignList from './components/campaignlist'
 const MyRoute = () => {
+    const email = localStorage.getItem('email');
     return (
-        <Routes>
-            <Route path='/' element={<>
-                <Navbar />
-                <CampaignList />
-                <Camp />
-                <Footer />
-            </>
-            } />
-            <Route path="/login"
-                element={
-                    <>
+        <>
+            <Routes>
+                {email != null ?
+                    <Route path='/' element={<>
+                        <Navbar />
+                        <CampaignList />
+                        <Camp />
+                        <Footer />
+                    </>
+                    } /> : <Route path='/' element={<>
                         <Navbar />
                         <Login />
                         <Footer />
+                    </>
+                    } />
+                }
 
+                <Route path="/login"
+                    element={
+                        <>
+                            <Navbar />
+                            <Login />
+                            <Footer />
+
+                        </>
+                    } />
+                <Route path='/signup' element={
+                    <>
+                        <Navbar />
+                        <Signup />
+                        <Footer />
                     </>
                 } />
-            <Route path='/signup' element={
-                <>
+                <Route path='/createcampaign' element={
+                    <>
+                        <Navbar />
+                        <Campaign />
+                        <Footer />
+                    </>
+                } />
+                <Route path='/donate/:id' element={
+                    <>
+                        <Navbar />
+                        <ProjectDetail />
+                    </>}
+                />
+                <Route path='/now' element={<>
                     <Navbar />
-                    <Signup />
-                    <Footer />
-                </>
-            } />
-            <Route path='/createcampaign' element={
-                <>
-                    <Navbar />
-                    <Campaign />
-                    <Footer />
-                </>
-            } />
-            <Route path='/donate/:id' element={
-                <>
-                    <Navbar />
-                    <ProjectDetail />
-                </>}
-            />
-            <Route path='/now' element={<>
-                <Navbar />
-                <Donate />
-            </>} />
+                    <Donate />
+                </>} />
 
-        </Routes>
+            </Routes>
+        </>
     )
 }
 
